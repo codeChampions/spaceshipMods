@@ -7,15 +7,20 @@
       <hr>
     </div>
   <div class="row">
-    <div class="notes col-xs-2">
-      Notes
+    <div class="gameNotes col-xs-3">
+      <strong>GOALS</strong><br><br>Move to the right.<br><br> To move right use function: moveRight();<br>
+      To make a while loop use this function: while (true) {<br>
+        this.moveRight();<br>
+      }
     </div>
-    <div class="col-xs-4 editor">
+    <div class="col-xs-3 editor">
       <div class="edit" ui-ace="spaceCtrl.aceOption" ng-model="spaceCtrl.aceModel">
       </div>
     </div>
     <div class="col-xs-6" id="game">
     </div>
     <button class="btn run" ng-click="spaceCtrl.run()">Run</button>
+    <button class="btn run" ng-click="spaceCtrl.run()">Reset</button>
+    <a href="#/spaceLesson2"><button class="btn next-lesson">Next Lesson</button></a>
   </div>
 </div>

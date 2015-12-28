@@ -19,7 +19,7 @@
         SpaceService.run(vm.aceModel);
       };
 
-    
+
   })
 
 }());

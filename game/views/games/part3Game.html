@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="nav">
+      <h1>Code Champions</h1>
+      <button ng-click="userCtrl.logout()" class="btn btn-logout">Logout</button>
+      <button class="btn btn-home">Home</button>
+
+      <hr>
+    </div>
+  <div class="row">
+    <div class="gameNotes col-xs-2">
+      Notes
+    </div>
+    <div class="col-xs-4 editor">
+      <div class="edit" ui-ace="spaceCtrl.aceOption" ng-model="spaceCtrl.aceModel">
+      </div>
+    </div>
+    <div class="col-xs-6" id="game">
+    </div>
+    <button class="btn run" ng-click="spaceCtrl.run()">Run</button>
+    <button class="btn run" ng-click="spaceCtrl.run()">Reset</button>
+    <a href="#/spaceLesson2"><button class="btn next-lesson">Next Lesson</button></a>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="nav">
+      <h1>Code Champions</h1>
+      <button ng-click="userCtrl.logout()" class="btn btn-logout">Logout</button>
+      <button class="btn btn-home">Home</button>
+
+      <hr>
+    </div>
+  <div class="row">
+    <div class="gameNotes col-xs-3">
+      <strong>GOALS</strong><br><br>Move to the right.<br>Fire bullets at the alien invaders.<br><br> To move right use function: moveRight();<br>
+      To fire a bullet use function: fireBullet();
+    </div>
+    <div class="col-xs-3 editor">
+      <div class="edit" ui-ace="spaceCtrl.aceOption" ng-model="spaceCtrl.aceModel">
+      </div>
+    </div>
+    <div class="col-xs-6" id="game">
+    </div>
+    <button class="btn run" ng-click="spaceCtrl.run()">Run</button>
+    <button class="btn run" ng-click="spaceCtrl.run()">Reset</button>
+    <a href="#/spaceLesson2"><button class="btn next-lesson">Next Lesson</button></a>
+  </div>
+</div>

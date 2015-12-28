@@ -11,7 +11,7 @@
 
 
 </head>
-<body ng-app="space">
+<body ng-app="spaceGame">
 <ng-view>
 </ng-view>
 
@@ -22,9 +22,17 @@
 <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js" charset="utf-8"></script>
 
-<script type="text/javascript" src="app.module.js"></script>
-<script type="text/javascript" src="app.controllers.js"></script>
-<script type="text/javascript" src="app.service.js"></script>
+<script type="text/javascript" src="common/app.module.js"></script>
+<script type="text/javascript" src="common/app.controllers.js"></script>
+<script type="text/javascript" src="common/app.service.js"></script>
+
+<script type="text/javascript" src="lesson/lesson.module.js"></script>
+<script type="text/javascript" src="lesson/lesson.controllers.js"></script>
+<script type="text/javascript" src="lesson/lesson.service.js"></script>
+
+<script type="text/javascript" src="game/game.module.js"></script>
+<script type="text/javascript" src="game/game.controllers.js"></script>
+<script type="text/javascript" src="game/game.service.js"></script>
 
 <script type="text/javascript" src="phaser.min.js"></script>
 

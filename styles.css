@@ -16,7 +16,40 @@ body {
 .nav hr {
   width: 100%; }
 
-.notes {
+.lesson {
+  margin-left: auto;
+  margin-right: auto; }
+  .lesson .video {
+    background-color: white;
+    border: 1px solid black;
+    height: 400px;
+    margin-right: 10px; }
+    .lesson .video iframe {
+      margin-top: 120px;
+      width: 100%; }
+  .lesson .notes {
+    background-color: white;
+    border: 1px solid black;
+    height: 400px;
+    overflow-y: scroll;
+    color: black;
+    font-family: 'Ek Mukta', sans-serif;
+    font-size: 16px; }
+    .lesson .notes img {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center; }
+    .lesson .notes figcaption {
+      text-align: center;
+      font-size: 12px; }
+  .lesson p .next {
+    float: right;
+    margin-right: 5px;
+    margin-top: 10px;
+    background-color: #D32F2F;
+    color: white; }
+
+.gameNotes {
   background-color: white;
   border: 1px solid black;
   height: 400px;
@@ -27,6 +60,12 @@ body {
   background-color: #D32F2F;
   color: white;
   margin-top: 5px; }
+
+.next-lesson {
+  background-color: #D32F2F;
+  color: white;
+  margin-top: 5px;
+  float: right; }
 
 .edit {
   height: 400px;
