@@ -106,17 +106,22 @@
             var alienPos = aliens.x;
             var playerPos = player.body.x;
             if(alienPos + 20 >= playerPos && alienPos -20 <= playerPos){
+              console.log(true);
               return true;
+            }
+            else{
+              console.log(false);
+              return false;
             }
           };
 
-        var setupInvader = function(invader)
+        var setupInvader = function(invader){
 
             invader.anchor.x = 0.5;
             invader.anchor.y = 0.5;
             // invader.animations.add('kaboom');
 
-        }
+        };
 
         var descend = function() {
 
