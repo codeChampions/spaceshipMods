@@ -16,7 +16,7 @@
           var starfield;
           var firingTimer = 0;
           var stateText;
-          var livingEnemies = [];
+          var livingEnemies = 0;
 
         var preload = function() {
 
@@ -87,6 +87,7 @@
                       // alien.animations.add('fly', [ 0, 1, 2, 3 ], true);
                       alien.play('fly', 10, true);
                       alien.body.moves = false;
+                      livingEnemies++;
                   }
               }
 
@@ -113,12 +114,12 @@
             aliens.y += 10;
 
         }
-
+        var firing = false;
         var fireBullet = function() {
 
            //  To avoid them being allowed to fire too fast we set a time limit
-           if (game.time.now > bulletTime)
-           {
+          // if (game.time.now > bulletTime)
+          // {
                //  Grab the first bullet we can from the pool
                var bullet = bullets.getFirstExists(false);
 
@@ -128,8 +129,9 @@
                    bullet.reset(player.x, player.y + 8);
                    bullet.body.velocity.y = -400;
                    bulletTime = game.time.now + 200;
+                   firing = true;
                }
-           }
+           //}
 
 
         }
@@ -139,12 +141,14 @@
             //  When a bullet hits an alien we kill them both
             bullet.kill();
             alien.kill();
+            livingEnemies--;
 
           var explosion = explosions.getFirstExists(false);
            explosion.reset(alien.body.x, alien.body.y);
            explosion.play('kaboom', 100, false, true);
 
            explosion.kill();
+
          }
 
 
@@ -159,10 +163,13 @@
       var moveLeft = function(){
         player.body.velocity.x = -150;
       }
+      var rightMove = false;
+      var numRight = 0;
+      var moveRight = function(amount){
+          rightMove = true;
+          numRight++;
 
-      var moveRight = function(){
-          player.body.velocity.x = 1000;
-      }
+      };
 
       var moveUp = function(){
         player.body.velocity.y = -150;
@@ -175,20 +182,21 @@
       var update = function() {
 
           player.body.velocity.x = 0;
-          player.body.velocity.y = 0;
-          for(var i = 0; i < aliens.length; i++){
-            if(player.body.x < aliens.getAt(i).body.x + 1 && player.body.x > aliens.getAt(i).body.x - 1){
-              fireBullet();
-            }
-          }
+         player.body.velocity.y = 0;
+        //  console.log("updating");
 
-          // if (cursors.left.isDown)
-          // {
-          //     //  Move to the left
-          //     player.body.velocity.x = -150;
-          //
-          //     // player.animations.play('left', 10, true);
-          // }
+          if (rightMove)
+           {
+              //  Move to the left
+              console.log(numRight);
+             player.body.velocity.x = 1000*numRight;
+             console.log(numRight);
+             console.log("once moved" + player.body.x);
+
+            player.animations.play('right', 10, true);
+            rightMove = false;
+            numRight= 0;
+           }
           // else if (cursors.right.isDown)
           // {
           //     //  Move to the right
@@ -226,10 +234,15 @@
 var game = new Phaser.Game(600, 400, Phaser.AUTO, 'game', { preload: preload, create: create, createAliens: createAliens, setupInvader: setupInvader, descend: descend, update: update, fireBullet: fireBullet, collisionHandler: collisionHandler, resetBullet: resetBullet });
 
     var run = function(input){
+     //var myX=0;
       // var game = new Phaser.Game(600, 400, Phaser.AUTO, 'game', { preload: preload, create: create, createAliens: createAliens, setupInvader: setupInvader, descend: descend, update: update, fireBullet: fireBullet, collisionHandler: collisionHandler, resetBullet: resetBullet });
-
+    //while(myX<20){
+    console.log("starting " + player.body.x);
     eval(input);
-  }
+    //myX++;
+
+  //} 
+};
       return {
         run: run
       };
