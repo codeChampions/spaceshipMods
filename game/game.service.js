@@ -80,7 +80,7 @@
 
               for (var y = 0; y < 1; y++)
               {
-                  for (var x = 0; x < 3; x++)
+                  for (var x = 0; x < 1; x++)
                   {
                       var alien = aliens.create(x * 200, y * 200, 'aliens');
                       alien.anchor.setTo(0.5, 0.5);
@@ -91,8 +91,8 @@
                   }
               }
 
-              aliens.x = 50;
-              aliens.y = 50;
+              aliens.x = 250;
+              aliens.y = 80;
 
               //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
               // var tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
@@ -101,7 +101,16 @@
               // tween.onLoop.add(descend, this);
           }
 
-        var setupInvader = function(invader) {
+          var checkEnemy = function(){
+            console.log(aliens.x);
+            var alienPos = aliens.x;
+            var playerPos = player.body.x;
+            if(alienPos + 20 >= playerPos && alienPos -20 <= playerPos){
+              return true;
+            }
+          };
+
+        var setupInvader = function(invader)
 
             invader.anchor.x = 0.5;
             invader.anchor.y = 0.5;
@@ -165,7 +174,7 @@
       }
       var rightMove = false;
       var numRight = 0;
-      var moveRight = function(amount){
+      var mobilizeRight = function(amount){
           rightMove = true;
           numRight++;
 
@@ -189,7 +198,7 @@
            {
               //  Move to the left
               console.log(numRight);
-             player.body.velocity.x = 1000*numRight;
+             player.body.velocity.x = 40000*numRight;
              console.log(numRight);
              console.log("once moved" + player.body.x);
 
@@ -241,7 +250,7 @@ var game = new Phaser.Game(600, 400, Phaser.AUTO, 'game', { preload: preload, cr
     eval(input);
     //myX++;
 
-  //} 
+  //}
 };
       return {
         run: run
